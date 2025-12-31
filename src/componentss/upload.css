@@ -1,0 +1,437 @@
+/* src/components/upload.css */
+
+:root {
+  --gold-primary: #FFD700;
+  --gold-dark: #B8860B;
+  --gold-light: #FFF8DC;
+  --gold-saturated: #FFC107;
+  --dark-bg: #1a1a1a;
+  --card-bg: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+  --success-color: #28a745;
+  --error-color: #dc3545;
+  --warning-color: #ffc107;
+}
+/* Center the upload card */
+.professional-upload-card {
+  margin: 0 auto; /* centers horizontally */
+  max-width: 900px; /* optional: prevent it from being too wide */
+}
+
+/* Professional Upload Card */
+/* .professional-upload-card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid rgba(255, 193, 7, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+} */
+
+.professional-upload-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Card Header */
+.professional-card-header {
+  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+  color: white;
+  border-bottom: 3px solid var(--gold-saturated);
+  position: relative;
+  overflow: hidden;
+}
+
+.professional-card-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold-primary), var(--gold-dark));
+}
+
+/* Upload Steps */
+.upload-steps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step {
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.step.active {
+  background: var(--gold-saturated);
+  color: #000;
+}
+
+.step-divider {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Form Sections */
+.form-section {
+  padding: 24px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-color);
+}
+
+.section-header {
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(255, 193, 7, 0.2);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.section-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--gold-saturated);
+  color: #000;
+  border-radius: 50%;
+  margin-right: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-left: 44px;
+}
+
+/* Labels and Inputs */
+.professional-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.professional-input-group {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.professional-input-group:focus-within {
+  border-color: var(--gold-saturated);
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.1);
+}
+
+.professional-textarea {
+  border: none;
+  padding: 16px;
+  background: white;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.professional-textarea:focus {
+  box-shadow: none;
+  background: white;
+}
+
+.char-count {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Drop Zone */
+.drop-zone {
+  border: 3px dashed rgba(255, 193, 7, 0.3);
+  border-radius: 16px;
+  padding: 60px 40px;
+  text-align: center;
+  background: rgba(255, 193, 7, 0.03);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.drop-zone::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 193, 7, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.drop-zone:hover::before {
+  opacity: 1;
+}
+
+.drop-zone:hover,
+.drop-zone.drag-over {
+  border-color: var(--gold-saturated);
+  background: rgba(255, 193, 7, 0.08);
+  transform: translateY(-2px);
+}
+
+.drop-zone-content {
+  position: relative;
+  z-index: 2;
+}
+
+.drop-zone-icon {
+  font-size: 64px;
+  color: var(--gold-saturated);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.drop-zone:hover .drop-zone-icon {
+  transform: scale(1.1);
+}
+
+.drop-zone.has-images {
+  padding: 30px;
+}
+
+.file-types {
+  margin-top: 20px;
+}
+
+/* Image Previews */
+.image-preview-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.image-preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--gold-saturated);
+}
+
+.image-wrapper {
+  position: relative;
+  padding-top: 75%; /* 4:3 Aspect Ratio */
+  overflow: hidden;
+  background: #f8f9fa;
+}
+
+.preview-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-wrapper:hover .preview-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-preview-card:hover .image-overlay {
+  opacity: 1;
+}
+
+.remove-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-info {
+  padding: 12px;
+  background: white;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Submit Button */
+.professional-submit-btn {
+  background: linear-gradient(135deg, var(--gold-saturated), var(--gold-dark));
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 14px 32px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.professional-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.professional-submit-btn:hover::before {
+  left: 100%;
+}
+
+.professional-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+}
+
+.professional-submit-btn:disabled {
+  opacity: 0.6;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Alerts */
+.professional-alert {
+  border-radius: 10px;
+  border: none;
+  padding: 16px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.alert-success {
+  background: linear-gradient(135deg, #d4edda, #c3e6cb);
+  border-left: 4px solid var(--success-color);
+}
+
+.alert-danger {
+  background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+  border-left: 4px solid var(--error-color);
+}
+
+.alert-warning {
+  background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+  border-left: 4px solid var(--warning-color);
+}
+
+/* Card Footer */
+.professional-card-footer {
+  background: #f8f9fa;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Text Colors */
+.text-gold {
+  color: var(--gold-saturated) !important;
+}
+
+/* Badges */
+.badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .professional-upload-card {
+    border-radius: 12px;
+  }
+  
+  .card-body {
+    padding: 24px !important;
+  }
+  
+  .upload-steps {
+    display: none;
+  }
+  
+  .form-section {
+    padding: 20px;
+  }
+  
+  .drop-zone {
+    padding: 40px 20px;
+  }
+  
+  .professional-submit-btn {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Animation for file upload */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+  }
+}
+
+.uploading .drop-zone {
+  animation: pulse 2s infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-saturated);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-dark);
+}

@@ -1,7 +1,8 @@
 // src/App.jsx
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Navbar from './componentss/Navbar.jsx';
+import Navbar from "./components/Navbar";
+
 import ProjectUpload from './componentss/upload.jsx';
 import ProjectManager from './componentss/projectManager.jsx';
 import AdminPanel from './componentss/admin.jsx';

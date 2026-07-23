@@ -19,12 +19,10 @@ function App() {
       <div className="App">
         {/* Show Navbar only after login */}
         {isLoggedIn && <Navbar onLogout={handleLogout} />}
-        <main className="p-4 mt-5">
+        <main className={isLoggedIn ? "main-content container-fluid px-3 px-md-5" : ""}>
           <Routes>
             {!isLoggedIn ? (
-              <>
-                <Route path="*" element={<Login onLogin={handleLogin} />} />
-              </>
+              <Route path="*" element={<Login onLogin={handleLogin} />} />
             ) : (
               <>
                 <Route path="/" element={<AdminPanel />} />
